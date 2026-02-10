@@ -179,7 +179,7 @@ export function FluidSphere() {
 
     return (
         <mesh ref={meshRef} scale={1.4}>
-            <sphereGeometry args={[1, 128, 128]} />
+            <sphereGeometry args={[3, 128, 128]} />
             <shaderMaterial
                 vertexShader={vertexShader}
                 fragmentShader={fragmentShader}
