@@ -8,7 +8,7 @@ function App() {
     <div className="relative w-full h-screen bg-[#111] overflow-hidden">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={1}
+        dpr={[1, 2]}
         className="absolute inset-0 z-0"
       >
         <Suspense fallback={null}>

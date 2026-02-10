@@ -72,8 +72,8 @@ void main() {
   vec3 pos = position;
   
   // Noise distortion
-  float noiseFreq = 1.8;
-  float noiseAmp = 0.15; 
+  float noiseFreq = 1.0;
+  float noiseAmp = 0.4; 
   vec3 noisePos = vec3(pos.x * noiseFreq + uTime * 0.4, pos.y * noiseFreq + uTime * 0.4, pos.z * noiseFreq);
   float noise = snoise(noisePos);
   
@@ -84,12 +84,12 @@ void main() {
   float dist = distance(uMouse.xy, worldPosition.xy);
   
   // Broad sphere of influence
-  float radius = 3.0; // Increased radius
+  float radius = 5.0; // Increased radius
   float influence = smoothstep(radius, 0.0, dist);
   
   // Ripple/Wave effect
   // Faster, clearer ripples
-  float wave = sin(dist * 8.0 - uTime * 6.0) * 0.3 * influence;
+  float wave = sin(dist * 8.0 - uTime * 6.0) * 0.8 * influence;
   
   // Combine effects
   float displacement = (noise * noiseAmp) + wave;
