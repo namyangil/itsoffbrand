@@ -73,7 +73,7 @@ void main() {
   
   // Noise distortion
   float noiseFreq = 1.8;
-  float noiseAmp = 0.12; 
+  float noiseAmp = 0.15; 
   vec3 noisePos = vec3(pos.x * noiseFreq + uTime * 0.4, pos.y * noiseFreq + uTime * 0.4, pos.z * noiseFreq);
   float noise = snoise(noisePos);
   
