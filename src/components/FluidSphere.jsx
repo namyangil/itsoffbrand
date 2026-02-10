@@ -73,7 +73,7 @@ void main() {
   
   // Noise distortion
   float noiseFreq = 1.0;
-  float noiseAmp = 0.6; 
+  float noiseAmp = 0.5; 
   vec3 noisePos = vec3(pos.x * noiseFreq + uTime * 0.4, pos.y * noiseFreq + uTime * 0.4, pos.z * noiseFreq);
   float noise = snoise(noisePos);
   
@@ -84,12 +84,12 @@ void main() {
   float dist = distance(uMouse.xy, worldPosition.xy);
   
   // Broad sphere of influence
-  float radius = 6.0; // Max radius
+  float radius = 10.0; // Max radius to cover screen
   float influence = smoothstep(radius, 0.0, dist);
   
   // Ripple/Wave effect
   // Faster, clearer ripples
-  float wave = sin(dist * 2.0 - uTime * 5.0) * 2.5 * influence;
+  float wave = sin(dist * 2.0 - uTime * 5.0) * 0.8 * influence;
   
   // Combine effects
   float displacement = (noise * noiseAmp) + wave;
@@ -178,8 +178,8 @@ export function FluidSphere() {
     });
 
     return (
-        <mesh ref={meshRef} scale={1.5}>
-            <sphereGeometry args={[3.5, 128, 128]} />
+        <mesh ref={meshRef} scale={1.0}>
+            <sphereGeometry args={[4, 128, 128]} />
             <shaderMaterial
                 vertexShader={vertexShader}
                 fragmentShader={fragmentShader}
